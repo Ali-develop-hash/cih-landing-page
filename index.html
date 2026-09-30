@@ -512,24 +512,33 @@ h2 {
 
 .hero {
   padding-top: 76px;
-  background: var(--beige);
   position: relative;
   overflow: hidden;
-}
+  min-height: 720px;
 
+  background:
+    linear-gradient(
+      105deg,
+      rgba(13, 31, 54, 0.42) 0%,
+      rgba(13, 31, 54, 0.25) 45%,
+      rgba(13, 31, 54, 0.34) 100%
+    ),
+    url("hero.jpg")
+      center / cover no-repeat;
+}
 .hero-grid {
   display: grid;
 
   grid-template-columns:
-    minmax(0, 1fr)
-    minmax(0, 1fr);
+    minmax(0, 1.15fr)
+    minmax(0, 0.85fr);
 
   width: 100%;
   max-width: 100%;
 
-  min-height: 680px;
+  min-height: 720px;
 
-  align-items: stretch;
+  align-items: center;
 }
 
 .hero-content {
@@ -537,75 +546,69 @@ h2 {
   flex-direction: column;
   justify-content: center;
 
-  padding: 75px clamp(28px, 5vw, 72px);
+  padding: 80px clamp(28px, 5vw, 80px) 80px clamp(28px, 6vw, 90px);
 
   position: relative;
-  overflow: hidden;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(13, 31, 54, 0.82) 0%,
-      rgba(20, 43, 74, 0.72) 50%,
-      rgba(13, 31, 54, 0.78) 100%
-    ),
-    url("hero.jpg")
-      center / cover no-repeat;
-}
-
-.hero-content > * {
-  position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .hero-label {
-  margin-bottom: 19px;
+  margin-bottom: 16px;
 
   color: #BFC4A8;
 
-  font-size: 0.76rem;
+  font-size: 0.8rem;
   font-weight: 800;
 
-  letter-spacing: 0.13em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
 .hero h1 {
-  max-width: 690px;
+  max-width: 720px;
 
-  margin: 0 0 22px;
+  margin: 0 0 18px;
 
   color: var(--white);
 
-  font-size: clamp(2.7rem, 5vw, 4.35rem);
+  font-size: clamp(2.8rem, 5.2vw, 4.5rem);
 
-  line-height: 1.04;
+  line-height: 1.05;
 
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
+
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.65),
+    0 6px 20px rgba(0, 0, 0, 0.45);
 }
 
 .hero h1 span {
   color: #BFC4A8;
+  display: inline;
 }
 
 .hero-text {
-  max-width: 620px;
+  max-width: 560px;
 
-  margin: 0 0 30px;
+  margin: 0 0 28px;
 
-  color: rgba(255, 255, 255, 0.88);
+  color: rgba(255, 255, 255, 0.96);
 
-  font-size: 1rem;
-  line-height: 1.85;
+  font-size: 1.05rem;
+  line-height: 1.8;
+
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.7),
+    0 4px 12px rgba(0, 0, 0, 0.35);
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
 
-  gap: 11px;
+  gap: 12px;
 
-  margin-bottom: 35px;
+  margin-bottom: 32px;
 }
 
 .hero-details {
@@ -614,21 +617,21 @@ h2 {
   grid-template-columns:
     repeat(3, minmax(0, 1fr));
 
-  max-width: 650px;
+  max-width: 560px;
 
-  padding-top: 24px;
+  padding-top: 22px;
 
-  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
 }
 
 .hero-detail {
-  padding-right: 18px;
+  padding-right: 16px;
 }
 
 .hero-detail + .hero-detail {
-  padding-left: 18px;
+  padding-left: 16px;
 
-  border-left: 1px solid rgba(255, 255, 255, 0.25);
+  border-left: 1px solid rgba(255, 255, 255, 0.28);
 }
 
 .hero-detail strong {
@@ -638,7 +641,7 @@ h2 {
 
   font-family: "Manrope", sans-serif;
 
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-weight: 800;
 }
 
@@ -647,67 +650,73 @@ h2 {
 
   margin-top: 3px;
 
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.78);
 
-  font-size: 0.69rem;
+  font-size: 0.7rem;
   line-height: 1.45;
 }
 
 
 /* =========================================================
-   HERO IMAGE
+   HERO IMAGE — floating doctor
 ========================================================= */
 
 .hero-photo {
   position: relative;
 
-  min-height: 680px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  overflow: hidden;
+  min-height: 720px;
+
+  padding: 40px clamp(20px, 4vw, 60px);
 
   background: transparent;
 }
 
-.hero-photo img {
+.hero-photo-float {
+  position: relative;
+
+  width: min(100%, 420px);
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.45),
+    0 0 0 8px rgba(255, 255, 255, 0.12),
+    0 0 0 16px rgba(102, 112, 68, 0.35);
+
+  transform: translateY(-8px);
+
+  animation: heroFloat 5s ease-in-out infinite;
+}
+
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(-8px); }
+  50% { transform: translateY(6px); }
+}
+
+.hero-photo-float img {
   width: 100%;
   height: 100%;
 
   object-fit: cover;
   object-position: center top;
+
+  display: block;
 }
 
 .hero-photo-overlay {
-  position: absolute;
-
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  padding: 45px;
-
-  background:
-    linear-gradient(
-      to top,
-      rgba(13, 31, 54, 0.92),
-      rgba(13, 31, 54, 0)
-    );
+  display: none;
 }
 
-.hero-doctor-name {
-  color: var(--white);
-
-  font-family: "Playfair Display", Georgia, serif;
-
-  font-size: 2rem;
-  line-height: 1.15;
-}
-
+.hero-doctor-name,
 .hero-doctor-role {
-  margin-top: 5px;
-
-  color: rgba(255, 255, 255, 0.78);
-
-  font-size: 0.82rem;
+  display: none;
 }
 
 
@@ -1817,6 +1826,10 @@ h2 {
     padding-top: 68px;
   }
 
+  .hero {
+    min-height: auto;
+  }
+
   .hero-grid {
     grid-template-columns: 1fr;
     min-height: auto;
@@ -1824,15 +1837,24 @@ h2 {
 
   .hero-content {
     min-height: auto;
+    order: 2;
 
     padding:
-      55px
+      40px
       28px
-      45px;
+      50px;
   }
 
   .hero-photo {
-    min-height: 600px;
+    min-height: auto;
+    order: 1;
+    padding: 36px 24px 10px;
+  }
+
+  .hero-photo-float {
+    width: min(72vw, 300px);
+    animation: none;
+    transform: none;
   }
 
   .about-grid,
@@ -1946,7 +1968,7 @@ h2 {
     padding-top: 15px;
 
     border-left: none;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid rgba(255, 255, 255, 0.28);
   }
 
   .hero-detail + .hero-detail {
@@ -1954,15 +1976,16 @@ h2 {
   }
 
   .hero-photo {
-    min-height: 500px;
+    min-height: auto;
+    padding: 28px 20px 8px;
   }
 
-  .hero-photo-overlay {
-    padding: 28px;
+  .hero-photo-float {
+    width: min(68vw, 260px);
   }
 
-  .hero-doctor-name {
-    font-size: 1.65rem;
+  .hero-detail:last-child {
+    border-top-color: rgba(255, 255, 255, 0.28);
   }
 
   .trust-grid {
@@ -2326,25 +2349,14 @@ h2 {
 
     <div class="hero-photo">
 
-      <img
-        src="Dr Fazal Abbas.jpeg"
-        alt="Dr. Fazal Abbas, Consultant Urologist in Islamabad"
-        width="900"
-        height="1000"
-        fetchpriority="high"
-      >
-
-
-      <div class="hero-photo-overlay">
-
-        <div class="hero-doctor-name">
-          Dr. Fazal Abbas
-        </div>
-
-        <div class="hero-doctor-role">
-          Consultant Urologist · Capital International Hospital
-        </div>
-
+      <div class="hero-photo-float">
+        <img
+          src="Dr Fazal Abbas-Photoroom.png"
+          alt="Dr. Fazal Abbas, Consultant Urologist in Islamabad"
+          width="600"
+          height="600"
+          fetchpriority="high"
+        >
       </div>
 
     </div>
