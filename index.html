@@ -517,35 +517,15 @@ h2 {
   overflow: hidden;
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(
-      105deg,
-      rgba(244, 239, 229, 0.88) 0%,
-      rgba(244, 239, 229, 0.78) 38%,
-      rgba(20, 43, 74, 0.45) 65%,
-      rgba(13, 31, 54, 0.65) 100%
-    ),
-    url("https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1800&q=85")
-      center / cover no-repeat;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.hero > .container {
-  position: relative;
-  z-index: 1;
-}
-
 .hero-grid {
   display: grid;
 
   grid-template-columns:
     minmax(0, 1fr)
     minmax(0, 1fr);
+
+  width: 100%;
+  max-width: 100%;
 
   min-height: 680px;
 
@@ -557,13 +537,31 @@ h2 {
   flex-direction: column;
   justify-content: center;
 
-  padding: 75px 55px 75px 0;
+  padding: 75px clamp(28px, 5vw, 72px);
+
+  position: relative;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(13, 31, 54, 0.82) 0%,
+      rgba(20, 43, 74, 0.72) 50%,
+      rgba(13, 31, 54, 0.78) 100%
+    ),
+    url("hero.jpg")
+      center / cover no-repeat;
+}
+
+.hero-content > * {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-label {
   margin-bottom: 19px;
 
-  color: var(--olive);
+  color: #BFC4A8;
 
   font-size: 0.76rem;
   font-weight: 800;
@@ -577,7 +575,7 @@ h2 {
 
   margin: 0 0 22px;
 
-  color: var(--navy);
+  color: var(--white);
 
   font-size: clamp(2.7rem, 5vw, 4.35rem);
 
@@ -587,7 +585,7 @@ h2 {
 }
 
 .hero h1 span {
-  color: var(--olive);
+  color: #BFC4A8;
 }
 
 .hero-text {
@@ -595,7 +593,7 @@ h2 {
 
   margin: 0 0 30px;
 
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.88);
 
   font-size: 1rem;
   line-height: 1.85;
@@ -620,7 +618,7 @@ h2 {
 
   padding-top: 24px;
 
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .hero-detail {
@@ -630,13 +628,13 @@ h2 {
 .hero-detail + .hero-detail {
   padding-left: 18px;
 
-  border-left: 1px solid var(--border);
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .hero-detail strong {
   display: block;
 
-  color: var(--navy);
+  color: var(--white);
 
   font-family: "Manrope", sans-serif;
 
@@ -649,7 +647,7 @@ h2 {
 
   margin-top: 3px;
 
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.75);
 
   font-size: 0.69rem;
   line-height: 1.45;
@@ -667,7 +665,7 @@ h2 {
 
   overflow: hidden;
 
-  background: var(--navy);
+  background: transparent;
 }
 
 .hero-photo img {
@@ -1671,10 +1669,6 @@ h2 {
     width: min(calc(100% - 72px), var(--container));
   }
 
-  .hero-content {
-    padding-right: 65px;
-  }
-
   .cta-content {
     padding-right: 65px;
   }
@@ -1705,10 +1699,6 @@ h2 {
     min-height: 720px;
   }
 
-  .hero-content {
-    padding-right: 75px;
-  }
-
   .cta-content {
     padding-right: 75px;
   }
@@ -1724,10 +1714,6 @@ h2 {
   .container,
   .header-inner {
     width: min(calc(100% - 40px), 1000px);
-  }
-
-  .hero-content {
-    padding-right: 35px;
   }
 
   .cta-content {
@@ -1841,7 +1827,7 @@ h2 {
 
     padding:
       55px
-      0
+      28px
       45px;
   }
 
@@ -1923,7 +1909,7 @@ h2 {
   .hero-content {
     padding:
       45px
-      0
+      24px
       40px;
   }
 
@@ -2243,7 +2229,7 @@ h2 {
   id="home"
 >
 
-  <div class="container hero-grid">
+  <div class="hero-grid">
 
 
     <div class="hero-content">
